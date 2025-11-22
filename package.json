@@ -1,0 +1,13 @@
+{
+  "name": "@kuriyota-com/monorepo",
+  "scripts": {
+    "dev": "pnpm -F web run dev",
+    "build": "pnpm -F web run build",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.17",
+    "dayjs": "^1.11.19",
+    "tailwindcss": "^4.1.17"
+  }
+}

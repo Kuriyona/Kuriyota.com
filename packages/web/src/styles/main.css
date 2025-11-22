@@ -1,0 +1,51 @@
+@import url('./font.css');
+@import 'tailwindcss';
+
+body {
+  font-weight: 500;
+  color: var(--color-text);
+  background-color: var(--color-body);
+}
+
+* {
+  transition: all 0.25s;
+}
+
+::selection {
+  background-color: #fff;
+  color: #000;
+}
+
+::-webkit-scrollbar {
+  width: 5px !important;
+  height: 5px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fff !important;
+  border-radius: 2.5px;
+}
+
+@layer hover {
+  .hover:hover {
+    background-color: #fff;
+    color: #000;
+  }
+}
+
+a {
+  text-decoration: solid underline #fff;
+}
+
+a:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+a.text {
+  text-decoration: none;
+}
