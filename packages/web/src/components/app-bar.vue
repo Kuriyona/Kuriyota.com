@@ -3,6 +3,6 @@
     <RouterLink to="/" class="text">
       <span class="hover">Kuriyota's Space</span>
     </RouterLink>
-    <span>Menu</span>
+    <span class="hover">Menu</span>
   </div>
 </template>

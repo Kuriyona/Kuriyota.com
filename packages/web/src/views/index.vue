@@ -20,10 +20,13 @@ const Contact = shallowRef({
       <img
         class="w-10 rounded-sm"
         src="https://avatars.githubusercontent.com/u/98728485" />
-      <h1 class="text-2xl">I'm Kuriyota</h1>
+      <h1 class="text-2xl">
+        I'm Kuriyota
+        <span class="text-gray-500">(Kuriyona)</span>
+      </h1>
       <p>
         A 17-year-old Chinese senior high school student, otaku, casual anime
-        fan, and intrest-driven developer.
+        fan, MtF, and intrest-driven developer.
       </p>
       <div>
         <p>· Location: Hangzhou, Zhejiang, the P.R.China ( 120° E, 30° N )</p>
