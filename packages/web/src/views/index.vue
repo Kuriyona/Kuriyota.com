@@ -3,11 +3,9 @@ import { computed, shallowRef } from 'vue';
 import dayjs from 'dayjs';
 import { useFetch } from '@vueuse/core';
 import { useI18n } from '@/scripts/i18n';
+import { HOST } from '@/scripts/api';
 
-const HOST = import.meta.env.DEV
-  ? 'http://localhost:62801'
-  : 'https://api.kuriyota.com';
-const { isFetching, data } = useFetch<any>(HOST + '/status');
+const { isFetching, data, execute } = useFetch<any>(HOST + '/status');
 const status = computed(() => JSON.parse(data.value));
 
 const __BUILD_TIME__ = import.meta.env.VITE_BUILD_TIME;
@@ -39,7 +37,10 @@ const Contact = shallowRef({
         <var-loading size="small" />
         <span>{{ t(['Loading status...', '加载状态中...']) }}</span>
       </div>
-      <div v-if="data && status?.awake">
+      <div
+        v-if="data && status?.awake"
+        class="hover:cursor-pointer"
+        @click="execute()">
         <span>{{ t(['Kuriyota is now ', 'Kuriyota 现在 ']) }}</span>
         <span v-if="status.awake == 'AWAKE'" class="text-green-500">{{
           t(['AWAKE', '醒着'])
