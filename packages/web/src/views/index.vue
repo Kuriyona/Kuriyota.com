@@ -2,6 +2,7 @@
 import { computed, shallowRef } from 'vue';
 import dayjs from 'dayjs';
 import { useFetch } from '@vueuse/core';
+import { useI18n } from '@/scripts/i18n';
 
 const HOST = import.meta.env.DEV
   ? 'http://localhost:62801'
@@ -10,6 +11,8 @@ const { isFetching, data } = useFetch<any>(HOST + '/status');
 const status = computed(() => JSON.parse(data.value));
 
 const __BUILD_TIME__ = import.meta.env.VITE_BUILD_TIME;
+
+const { t } = useI18n();
 
 const Contact = shallowRef({
   Github: 'https://github.com/Kuriyota',
@@ -22,6 +25,7 @@ const Contact = shallowRef({
 </script>
 
 <template>
+  <!--{{ t(['', '']) }}-->
   <div class="-index font-mono flex justify-center h-full">
     <main class="w-160 my-20 p-4 flex flex-col gap-4">
       <img
@@ -33,47 +37,68 @@ const Contact = shallowRef({
       </h1>
       <div v-if="isFetching" class="flex gap-4">
         <var-loading size="small" />
-        <span>Loading status</span>
+        <span>{{ t(['Loading status...', '加载状态中...']) }}</span>
       </div>
       <div v-if="data && status?.awake">
-        <span>Kuriyota is now&nbsp;</span>
-        <span v-if="status.awake == 'AWAKE'" class="text-green-500">AWAKE</span>
+        <span>{{ t(['Kuriyota is now ', 'Kuriyota 现在 ']) }}</span>
+        <span v-if="status.awake == 'AWAKE'" class="text-green-500">{{
+          t(['AWAKE', '醒着'])
+        }}</span>
         <span v-else-if="status.awake == 'SLEEP'" class="text-yellow-500"
-          >SLEEPING
+          >{{ t(['SLEEPING', '睡着']) }}
         </span>
         <span v-else class="text-gray-500">...UNKNOWN</span>
       </div>
       <hr />
       <p>
-        A 17-year-old Chinese senior high school student, otaku, casual anime
-        fan, MtF, and interest-driven developer.
+        {{
+          t([
+            'A 17-year-old Chinese senior high school student, otaku, casual anime fan, MtF, and interest-driven developer.',
+            '17 岁中国高中生，宅，亚二次元，MtF 和兴趣使然的开发者'
+          ])
+        }}
       </p>
       <div>
-        <p>· Location: Hangzhou, Zhejiang, the P.R.China ( 120° E, 30° N )</p>
-        <p>· Birthday: June 28th (2008)</p>
         <p>
-          · Tech stack : JavaScript/TypeScript (Vue, Node/Bun, Elysia),
-          HTML/CSS, C#
+          · {{ t(['Location', '所在地']) }}:
+          {{ t(['Hangzhou, Zhejiang, the P.R.China', '中国，浙江省，杭州市']) }}
+          ( 120° E, 30° N )
         </p>
-        <p>· Language: Mandarin Chinese, English & Japanese (Learning)</p>
+        <p>
+          · {{ t(['Birthday', '生日']) }}:
+          {{ t(['June 28th (2008)', '六月 28 (2008)']) }}
+        </p>
+        <p>
+          · {{ t(['Tech stack', '技术栈']) }} : JavaScript/TypeScript (Vue,
+          Node/Bun, Elysia), HTML/CSS, C#
+        </p>
+        <p>
+          · {{ t(['Language', '语言']) }}:
+          {{
+            t([
+              'Mandarin Chinese, English & Japanese (Learning)',
+              '中文/普通话，英文，初学日文'
+            ])
+          }}
+        </p>
       </div>
       <p>
-        I am the founder of
+        {{ t(['I am the founder of', '我是这个工作室的成立者：']) }}
         <a href="https://github.com/SharpDotNUT/" target="_blank">
           #.NUT Studio
         </a>
         ,
         <br />
-        and my project ：
+        {{ t(['and my project ', '以及我的项目']) }}：
         <a
           href="https://github.com/SharpDotNUT/Prototype-YunHan"
-          target="_blank">
-          「Prototype · YunHan」
+          target="_blank"
+          >「Prototype · YunHan」
         </a>
       </p>
       <hr />
       <div>
-        You can find me on
+        {{ t(['You can find me on', '你可以通过以下途径找到我']) }}
         <br />
         <p v-for="(link, name) in Contact">
           <span>·&nbsp;</span>
@@ -81,7 +106,7 @@ const Contact = shallowRef({
             {{ name }}
           </a>
         </p>
-        <p>· Wechat : @Kuriyota</p>
+        <p>· {{ t(['Wechat', '微信']) }} : @Kuriyota</p>
         <p>· QQ: ID 2946733291</p>
       </div>
       <hr />
@@ -93,18 +118,18 @@ const Contact = shallowRef({
       <hr />
       <div>
         <p>
-          · Build time :
+          · {{ t(['Build time', '构建时间']) }} :
           {{ dayjs(__BUILD_TIME__).format('YYYY-MM-DD HH:mm:ss') }}
         </p>
         <p>
-          · OpenSource (MIT) :
+          · {{ t(['OpenSource', '开源']) }} (MIT) :
           <a href="https://github.com/Kuriyota/Kuriyota.com">
             Kuriyota/Kuriyota.com
           </a>
         </p>
         <p>
-          · Copyright © {{ dayjs().format('YYYY') }} Kuriyota. All rights
-          reserved.
+          · {{ t(['Copyright', '版权所有']) }} ©
+          {{ dayjs().format('YYYY') }} Kuriyota. All rights reserved.
         </p>
       </div>
     </main>
