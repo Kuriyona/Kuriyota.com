@@ -15,7 +15,7 @@ const { t } = useI18n();
 const Contact = shallowRef({
   Github: 'https://github.com/Kuriyota',
   Bilibili: 'https://space.bilibili.com/650631530',
-  X: 'https://x.com/cn_Kuriyota',
+  X: 'https://x.com/kuriyona',
   Zhihu: 'https://www.zhihu.com/people/cn-chestnut',
   Telegram: 'https://t.me/Kuriyota',
   'Kuriyota@outlook.com': 'mailto:kuriyota@outlook.com'
@@ -30,8 +30,8 @@ const Contact = shallowRef({
         class="w-10 rounded-sm"
         src="https://avatars.githubusercontent.com/u/98728485" />
       <h1 class="text-2xl">
-        I'm Kuriyota
-        <span class="text-gray-500">(Kuriyona)</span>
+        I'm Kuriyona
+        <span class="text-gray-500">(Kuriyota)</span>
       </h1>
       <div v-if="isFetching" class="flex gap-4">
         <var-loading size="small" />
@@ -41,7 +41,7 @@ const Contact = shallowRef({
         v-if="data && status?.awake"
         class="hover:cursor-pointer"
         @click="execute()">
-        <span>{{ t(['Kuriyota is now ', 'Kuriyota 现在 ']) }}</span>
+        <span>{{ t(['Kuriyona is now ', 'Kuriyona 现在 ']) }}</span>
         <span v-if="status.awake == 'AWAKE'" class="text-green-500">{{
           t(['AWAKE', '醒着'])
         }}</span>
@@ -84,7 +84,7 @@ const Contact = shallowRef({
         </p>
       </div>
       <p>
-        {{ t(['I am the founder of', '我是这个工作室的成立者：']) }}
+        {{ t(['I am the founder of', 'I am the founder of']) }}
         <a href="https://github.com/SharpDotNUT/" target="_blank">
           #.NUT Studio
         </a>
