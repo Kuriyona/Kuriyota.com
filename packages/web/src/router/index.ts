@@ -8,6 +8,10 @@ const router = createRouter({
       component: () => import('../views/index.vue')
     },
     {
+      path: '/admin',
+      component: () => import('../views/admin.vue')
+    },
+    {
       path: '/:pathMatch(.*)*',
       component: () => import('../views/404.vue')
     }
