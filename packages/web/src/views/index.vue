@@ -28,7 +28,7 @@ const Contact = shallowRef({
     <main class="w-160 my-20 p-4 flex flex-col gap-4">
       <img
         class="w-10 rounded-sm"
-        src="https://avatars.githubusercontent.com/u/98728485" />
+        src="https://r2.kuriyona.com/img/avatar/Avatar_256.png" />
       <h1 class="text-2xl">
         I'm Kuriyona
         <span class="text-gray-500">(Kuriyota)</span>
