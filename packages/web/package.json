@@ -7,6 +7,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.18",
     "@varlet/ui": "^3.10.5",
     "@vueuse/core": "^14.1.0",
     "github-markdown-css": "^5.8.1",

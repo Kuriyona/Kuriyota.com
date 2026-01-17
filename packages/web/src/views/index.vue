@@ -128,8 +128,8 @@ const Contact = shallowRef({
         </p>
         <p>
           · {{ t(['OpenSource', '开源']) }} (MIT) :
-          <a href="https://github.com/Kuriyota/Kuriyota.com">
-            Kuriyota/Kuriyota.com
+          <a href="https://github.com/Kuriyona/Kuriyona.com">
+            Kuriyona/Kuriyona.com
           </a>
         </p>
         <p>
